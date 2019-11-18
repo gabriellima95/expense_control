@@ -1,0 +1,15 @@
+{% extends "navigation_bar.html" %}
+{% block content %}
+    <div id="expense_form">
+        <form method="post" action="/expense">
+
+            <input type="number" name="value" placeholder="Valor"/> <br />
+
+            <input type="date" name="due" placeholder="Vencimento"/> <br />
+
+            <textarea name="description" placeholder="Descrição"></textarea> <br />
+
+            <button type="submit">Adicionar Gasto</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Meu site</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/expense.css') }}" />
+    </head>
+
+    <body>
+
+        <div id="navigation">
+            <div id="redirect-area">
+                <div id="menu">
+                    <a href="{{ url_for('expense.index') }}">Principal</a> |
+                    <a href="{{ url_for('expense.unpaid_expenses') }}">Gastos em aberto</a> |
+                    <a href="{{ url_for('expense.expense_history') }}">Histórico de Gastos</a>
+                </div>
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+
+    </body>
+
+</html>

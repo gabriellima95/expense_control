@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Meu site</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user.css') }}" />
+    </head>
+
+    <body>
+
+        <div id="signup">
+            <form method="post" action="/user">
+
+            <input type="text" name="name" placeholder="Nome"/> <br />
+
+            <input type="text" name="username" placeholder="Usuário"/> <br />
+
+            <input type="passsword" name="password" placeholder="Senha"> <br />
+
+            <button type="submit">Sign Up</button>
+        </form>
+        </div>
+
+    </body>
+
+</html>

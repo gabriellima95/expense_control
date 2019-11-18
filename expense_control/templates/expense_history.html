@@ -1,0 +1,18 @@
+{% extends "navigation_bar.html" %}
+{% block content %}
+    {% if expenses %}
+
+        {% for e in expenses %}
+
+            <div id="expenses">
+                <div class="expense">
+                    <h2> {{e.value}} </h2>
+                    <span class="due-date"> {{e.due}}</span>
+                    <p>{{e.description}} </p>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+{% endblock %}
