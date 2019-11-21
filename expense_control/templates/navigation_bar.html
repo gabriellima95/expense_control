@@ -9,10 +9,12 @@
 
         <div id="navigation">
             <div id="redirect-area">
+                Olá, {{ user_name }}
                 <div id="menu">
                     <a href="{{ url_for('expense.index') }}">Principal</a> |
                     <a href="{{ url_for('expense.unpaid_expenses') }}">Gastos em aberto</a> |
-                    <a href="{{ url_for('expense.expense_history') }}">Histórico de Gastos</a>
+                    <a href="{{ url_for('expense.expense_history') }}">Histórico de Gastos</a> |
+                    <a href="{{ url_for('user.signout') }}">Sair</a>
                 </div>
             </div>
         </div>

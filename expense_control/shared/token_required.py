@@ -1,26 +1,25 @@
 import jwt
 import datetime
 
-from flask import request, jsonify
+from flask import request, jsonify, redirect, url_for, g
 from flask import current_app as app
 from functools import wraps
 
-from .db import db
-from .user import User
-from .repository import Repository
+from expense_control.models.user import User
 
 
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        token = request.headers.get('X-Access-Token')
-
         try:
+            cookie = request.headers.get('Cookie')
+            token = cookie.split('=')[-1]
             data = jwt.decode(token, app.config['SECRET_KEY'])
-            current_user = db.session.query(User).filter_by(public_id=data['public_id']).first()
-        except:
-            return jsonify({'error': 'Token is Invalid'}), 401
+            current_user = User().get_by_id(data['id'])
+        except Exception:
+            return redirect(url_for('user.login'))
+        g.current_user = current_user
 
-        return f(current_user, *args, **kwargs)
+        return f(*args, **kwargs)
 
     return decorated
