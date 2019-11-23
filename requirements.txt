@@ -1,0 +1,4 @@
+Flask
+Flask-Migrate
+PyJWT
+psycopg2-binary
