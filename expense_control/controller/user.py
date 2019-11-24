@@ -35,7 +35,12 @@ def create_user():
         password=hash_password
     )
     user.create()
-    return redirect(url_for('expense.index'))
+
+    token = __generate_token(user.id)
+    response = make_response(redirect('/'))
+    response.set_cookie('X-Access-Token', token.decode('UTF-8'))
+
+    return response
 
 
 @app.route('/signin', methods=['POST'])
@@ -51,13 +56,7 @@ def signin():
     if not check_password_hash(user.password, password):
         return redirect('/login')
 
-    token = jwt.encode(
-        {
-            'id': str(user.id),
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
-        },
-        SECRET_KEY
-    )
+    token = __generate_token(user.id)
     response = make_response(redirect('/'))
     response.set_cookie('X-Access-Token', token.decode('UTF-8'))
 
@@ -70,3 +69,14 @@ def signout():
     response.set_cookie('X-Access-Token', '', expires=0)
 
     return response
+
+
+def __generate_token(user_id):
+    token = jwt.encode(
+        {
+            'id': str(user_id),
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
+        },
+        SECRET_KEY
+    )
+    return token
