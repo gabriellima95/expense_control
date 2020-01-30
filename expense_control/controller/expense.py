@@ -4,6 +4,7 @@ import datetime
 from flask import Flask, request, render_template, redirect, url_for, make_response, Blueprint, g
 from expense_control.models.expense import Expense
 from expense_control.shared.token_required import token_required
+from expense_control.controller.tasks.create_expense import create_expense
 
 app = Blueprint('expense', __name__)
 
@@ -30,13 +31,12 @@ def unpaid_expenses():
 
 @app.route('/expense', methods=['POST'])
 @token_required
-def create_expense():
+def save_expense():
     value = request.form['value']
     description = request.form['description']
     due = request.form['due']
 
-    expense = Expense(value=value, description=description, due=due, user_id=g.current_user.id)
-    expense.create()
+    create_expense.delay(value, description, due, g.current_user.id)
     return redirect(url_for('expense.index'))
 
 

@@ -3,5 +3,6 @@ Flask-Migrate
 Flask-SQLAlchemy
 PyJWT
 psycopg2-binary
+celery
 
 pytest
