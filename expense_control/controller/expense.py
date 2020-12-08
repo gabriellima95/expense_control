@@ -45,6 +45,6 @@ def save_expense():
 def pay_expense(expense_id):
     expense = ExpenseRepository().get_by_id(expense_id, g.current_user.id)
     expense.pay()
-    expense.update()
+    ExpenseRepository().update(expense)
 
     return redirect(url_for('expense.unpaid_expenses'))
