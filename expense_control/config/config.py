@@ -1,3 +1,3 @@
 SECRET_KEY = 'chavesecreta'
-SQLALCHEMY_DATABASE_URI = 'postgres://emzazqkg:cj5PlBgOnLvlaNItkHwgav9N_fdQ5qd8@tuffi.db.elephantsql.com:5432/emzazqkg'
+SQLALCHEMY_DATABASE_URI = 'postgresql://localhost:5432/expense_control?user=postgres&password=postgres'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
