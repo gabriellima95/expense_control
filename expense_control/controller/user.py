@@ -8,6 +8,7 @@ from flask import (
     Blueprint, jsonify
 )
 from expense_control.models.user import User
+from expense_control.repositories.user_repository import UserRepository
 from expense_control.config.config import SECRET_KEY
 
 app = Blueprint('user', __name__)
@@ -34,7 +35,7 @@ def create_user():
         username=username,
         password=hash_password
     )
-    user.create()
+    UserRepository().create(user)
 
     token = __generate_token(user.id)
     response = make_response(redirect('/'))
@@ -48,7 +49,7 @@ def signin():
     username = request.form['username']
     password = request.form['password']
 
-    user = User().get_by_username(username)
+    user = UserRepository().get_by_username(username)
 
     if not user:
         return redirect('/login')
