@@ -6,7 +6,7 @@ services:
     volumes:
       - ./docker/postgres-multiple-databases.sh:/docker-entrypoint-initdb.d/postgres-multiple-databases.sh
     restart: always
-    hostname: ura
+    hostname: expense_control
     ports:
       - "5432:5432"
     environment:
