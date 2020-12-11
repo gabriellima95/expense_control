@@ -1,6 +1,3 @@
-from expense_control.shared.repository import Repository
-
-
 class Expense:
     id = None
     value = None

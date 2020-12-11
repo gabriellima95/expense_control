@@ -1,7 +1,6 @@
-import jwt
 import datetime
 
-from flask import Flask, request, render_template, redirect, url_for, Blueprint, g
+from flask import request, render_template, redirect, url_for, Blueprint, g
 from expense_control.repositories.expense_repository import ExpenseRepository
 from expense_control.shared.token_required import token_required
 from expense_control.controller.tasks.create_expense import create_expense
