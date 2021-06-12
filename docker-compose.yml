@@ -1,5 +1,9 @@
 version: '3.7'
 
+# networks:
+#   bridge:
+#     external: true
+
 services:
   db:
     image: postgres
@@ -13,3 +17,12 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_MULTIPLE_DATABASES=expense_control,expense_control_test
+
+  # expense_control_app:
+  #   container_name: expense_control_app
+  #   ports:
+  #     - 5000:5000
+  #   image: "expense_control"
+  #   restart: always
+  #   depends_on:
+  #     - db
