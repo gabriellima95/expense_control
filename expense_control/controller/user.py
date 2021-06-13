@@ -39,7 +39,7 @@ def create_user():
 
     token = __generate_token(user.id)
     response = make_response(redirect('/'))
-    response.set_cookie('X-Access-Token', token.decode('UTF-8'))
+    response.set_cookie('X-Access-Token', token)
 
     return response
 
@@ -59,7 +59,7 @@ def signin():
 
     token = __generate_token(user.id)
     response = make_response(redirect('/'))
-    response.set_cookie('X-Access-Token', token.decode('UTF-8'))
+    response.set_cookie('X-Access-Token', token)
 
     return response
 
@@ -78,6 +78,7 @@ def __generate_token(user_id):
             'id': str(user_id),
             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
         },
-        SECRET_KEY
+        SECRET_KEY,
+        algorithm="HS256"
     )
     return token

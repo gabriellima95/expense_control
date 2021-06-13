@@ -14,7 +14,7 @@ def token_required(f):
         try:
             cookie = request.headers.get('Cookie')
             token = cookie.split('=')[-1]
-            data = jwt.decode(token, app.config['SECRET_KEY'])
+            data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
             current_user = UserRepository().get_by_id(data['id'])
         except Exception:
             return redirect(url_for('user.login'))
