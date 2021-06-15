@@ -1,5 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+}
+
+a {     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 17px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all ease 0.2s; 
+}
+
+a:hover {
+    background: gray;
+    color: white;
+}
+
+a:active {
+    opacity: 85%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    height: 25px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+textarea {
+    margin-bottom: 3px;
+    height: 100px;
+    font-size: 14px;
+}
+
+button {
+    width: 150px;
+    height: 25px;
+    font-size: 14px;
+    background: lightgray;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px #2c3e50;
+}
+button:hover {
+    opacity: 90%;
+    cursor: pointer;
+}
+
+button:active {
+    opacity: 80%;
+    box-shadow: none;
 }
 
 .expense {
@@ -34,12 +97,23 @@ body {
 
 #redirect-area {
     width: 720px;
+    height: 45px;
     margin: 0 auto;
 }
 
+#user-name {
+    display: inline-block;
+    width: 100px;
+    height: 45px;
+    margin: 0;
+}
+
 #menu {
+    display: grid;
+    grid-template-rows: 45px;
+    grid-template-columns: 100px 150px 150px 50px;
+    height: 45px;
     float: right;
-    padding: 10px 0;
 }
 
 #expense_form{
