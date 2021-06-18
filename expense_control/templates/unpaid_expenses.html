@@ -1,37 +1,41 @@
 {% extends "navigation_bar.html" %}
 {% block content %}
-    <div id="expenses">
-        {% if expenses %}
+<div id="expenses">
+    {% if expenses %}
+    
+    <div id="unpaid-list">
+            {% for e in expenses %}
 
+                {% if date >= e.due %}
+                <div class="unpaid-item">
+                    <h2> {{e.value}} </h2>
+                    <span class="due-date"> {{e.due}}</span>
+                    <p>{{e.description}} </p>
+                    <form method='post' action='/expense/{{e.id}}/pay'>
+                        <button type="submit">Pagar</button>
+                    </form>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        <div id="paid-list">
             {% for e in expenses %}
 
                 {% if date < e.due %}
-
-                    <div class="expense paid">
-                        <h2> {{e.value}} </h2>
-                        <span class="due-date"> {{e.due}}</span>
-                        <p>{{e.description}} </p>
-                        <form method='post' action='/expense/{{e.id}}/pay'>
-                            <button type="submit">Pagar</button>
-                        </form>
-                    </div>
-
-                {% else %}
-
-                    <div class="expense unpaid">
-                        <h2> {{e.value}} </h2>
-                        <span class="due-date"> {{e.due}}</span>
-                        <p>{{e.description}} </p>
-                        <form method='post' action='/expense/{{e.id}}/pay'>
-                            <button type="submit">Pagar</button>
-                        </form>
-                    </div>
-
+                <div class="paid-item">
+                    <h2> {{e.value}} </h2>
+                    <span class="due-date"> {{e.due}}</span>
+                    <p>{{e.description}} </p>
+                    <form method='post' action='/expense/{{e.id}}/pay'>
+                        <button type="submit">Pagar</button>
+                    </form>
+                </div>
                 {% endif %}
-
             {% endfor %}
+        </div>
 
-        {% endif %}
+    {% endif %}
 
-    </div>
+</div>
 {% endblock %}
