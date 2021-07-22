@@ -13,6 +13,12 @@
 
     {% endfor %}
 </div>
-
+<script type="text/javascript" src="../static/js/vanilla-tilt.js"></script>
+<script type="text/javascript">
+	VanillaTilt.init(document.querySelectorAll(".expense-item"), {
+		max: 25,
+		speed: 400
+	});
+</script>
 {% endif %}
 {% endblock %}

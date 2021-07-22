@@ -72,29 +72,31 @@ button:active {
 
 .expense-item, .unpaid-item, .paid-item {
     display: inline-block;
-    background: white;
+    background: rgb(255,255,255,1);
+    margin: 0 15px 15px 0;
     width: 200px;
     height: 210px;
     padding: 10px;
-    transition: all ease 0.2s;
-    transform: scale(0.95);
+    /* transition: all ease 0.2s; */
+    /* transform: scale(0.95); */
+    border-radius: 5px;
 }
 
 .expense-item{
-    border: 3px solid black;
+    box-shadow: 0 0 1em black;
 }
 
 .unpaid-item {
-    border: 3px solid red;
+    box-shadow: 0 0 1em red;
 }
 
 .paid-item {
-    border: 3px solid green;
+    box-shadow: 0 0 1em green;
 }
 
-.unpaid-item:hover, .paid-item:hover, .expense-item:hover {
+/* .unpaid-item:hover, .paid-item:hover, .expense-item:hover {
     transform: scale(1.05);
-}
+} */
 
 #navigation {
     background: white;
@@ -103,6 +105,7 @@ button:active {
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 999;
 }
 
 #redirect-area {

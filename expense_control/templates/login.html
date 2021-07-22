@@ -1,16 +1,17 @@
 <html>
-    <head>
-        <title>Meu site</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user.css') }}" />
-    </head>
 
-    <body>
+<head>
+    <title>Meu site</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user.css') }}" />
+</head>
 
-        <div id="login">
-            <form method="post" action="/signin">
+<body>
 
-            <input type="text" name="username" placeholder="Usuário"/> 
+    <div id="login">
+        <form method="post" action="/signin">
+
+            <input type="text" name="username" placeholder="Usuário" />
 
             <input type="password" name="password" placeholder="Senha">
 
@@ -18,8 +19,8 @@
 
             <a href="{{ url_for('user.signup') }}">Criar Usuário</a>
         </form>
-        </div>
+    </div>
 
-    </body>
+</body>
 
 </html>
