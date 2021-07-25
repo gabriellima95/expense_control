@@ -27,4 +27,4 @@ class ExpenseCategory(enum.Enum):
     OTHER = 'Outros'
     FOOD = 'Alimentaçao'
     TRANSPORT = 'Transporte'
-    ENTERTAINMENT = 'Entreterimento'
+    ENTERTAINMENT = 'Entretenimento'
