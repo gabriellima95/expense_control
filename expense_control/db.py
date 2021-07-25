@@ -3,8 +3,9 @@ import uuid
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
+from sqlalchemy.types import Enum
 
-from expense_control.models.expense import Expense
+from expense_control.models.expense import Expense, ExpenseCategory
 from expense_control.models.user import User
 
 db = SQLAlchemy()
@@ -16,6 +17,7 @@ expenses_mapping = db.Table(
     db.Column('description', db.String(255)),
     db.Column('due', db.DateTime()),
     db.Column('paid', db.Boolean(), default=False),
+    db.Column('category', Enum(ExpenseCategory)),
     db.Column(
         'user_id',
         UUID(as_uuid=True),
