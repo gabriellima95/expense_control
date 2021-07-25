@@ -34,8 +34,9 @@ def save_expense():
     value = request.form['value']
     description = request.form['description']
     due = request.form['due']
+    category = request.form['category']
 
-    expense = Expense(value=value, description=description, due=due, user_id=g.current_user.id)
+    expense = Expense(value=value, description=description, due=due, category=category, user_id=g.current_user.id)
     ExpenseRepository().create(expense)
     return redirect(url_for('expense.index'))
 

@@ -10,7 +10,10 @@ class Expense:
     user_id = None
 
     def __init__(self, **kwargs):
-        self.category = ExpenseCategory(kwargs.get('category')) if kwargs.get('category') else ExpenseCategory.OTHER
+        self.category = ExpenseCategory.OTHER
+        if kwargs.get('category'):
+            self.category = ExpenseCategory(kwargs['category'])
+            kwargs.pop('category')
     
         for key in kwargs:
             if hasattr(self, key):
