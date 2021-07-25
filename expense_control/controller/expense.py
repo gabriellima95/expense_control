@@ -18,14 +18,23 @@ def index():
 @token_required
 def expense_history():
     expenses = ExpenseRepository().get_all(user_id=g.current_user.id)
-    return render_template('expense_history.html', expenses=expenses, user_name=g.current_user.name)
+    expenses_categories = {}
+    for e in expenses:
+        if expenses_categories.get(e.category.value):
+            expenses_categories[e.category.value] += e.value
+        else:
+            expenses_categories[e.category.value] = e.value
+    return render_template('expense_history.html', expenses=expenses, expenses_categories=expenses_categories,user_name=g.current_user.name)
 
 
 @app.route('/unpaid_expenses')
 @token_required
 def unpaid_expenses():
     expenses = ExpenseRepository().get_unpaid_expenses(user_id=g.current_user.id)
-    return render_template('unpaid_expenses.html', expenses=expenses, date=datetime.datetime.now(), user_name=g.current_user.name)
+    total_amount = 0
+    for expense in expenses:
+        total_amount += expense.value
+    return render_template('unpaid_expenses.html', total_amount=total_amount ,expenses=expenses, date=datetime.datetime.now(), user_name=g.current_user.name)
 
 
 @app.route('/expense', methods=['POST'])

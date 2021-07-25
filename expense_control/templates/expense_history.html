@@ -2,7 +2,7 @@
 {% block content %}
 {% if expenses %}
 
-<div id="expenses">
+<div id="expenses--history">
     {% for e in expenses %}
 
     <div class="expense-item">
@@ -13,8 +13,18 @@
     </div>
 
     {% endfor %}
+    
+</div>
+
+<div class="bar--container">
+    <div class="bar">
+        {% for cat, value in expenses_categories.items() %}
+        <div class='categories' id={{cat}}>{{value}}</div>
+        {% endfor %}
+    </div>
 </div>
 <script type="text/javascript" src="../static/js/vanilla-tilt.js"></script>
+<script type='text/javascript' src="../static/js/bar.js"></script>
 <script type="text/javascript">
 	VanillaTilt.init(document.querySelectorAll(".expense-item"), {
 		max: 25,

@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
 body {
     display: flex;
-    justify-content: center;
+    margin: 0;
+    padding: 30px;
     background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
 }
 
@@ -53,7 +56,8 @@ button {
     background: lightgray;
     border: none;
     border-radius: 5px;
-    box-shadow: 1px 1px 1px 1px #2c3e50;
+    box-shadow: 5px 5px 10px #2c3e50;
+    transition: all ease 0.75s;
 }
 button:hover {
     opacity: 90%;
@@ -66,7 +70,10 @@ button:active {
 }
 
 #expenses {
-    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 680px;
+    height: 100%;
     margin-top: 50px;
 }
 
@@ -77,8 +84,6 @@ button:active {
     width: 200px;
     height: 210px;
     padding: 10px;
-    /* transition: all ease 0.2s; */
-    /* transform: scale(0.95); */
     border-radius: 5px;
 }
 
@@ -94,10 +99,6 @@ button:active {
     box-shadow: 0 0 1em green;
 }
 
-/* .unpaid-item:hover, .paid-item:hover, .expense-item:hover {
-    transform: scale(1.05);
-} */
-
 #navigation {
     background: white;
     border-bottom: 1px solid #000;
@@ -105,6 +106,7 @@ button:active {
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 999;
 }
 
@@ -141,4 +143,27 @@ button:active {
     display: block;
     margin-bottom: 10px;
     padding-bottom: 10px;
+}
+
+.total--amount{
+    margin: 40px;
+    font-size: 24px;
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+#expenses--history {
+    display: flex;
+    flex-wrap: wrap;
+    width: 680px;
+    height: 100%;
+    margin-top: 50px;
+}
+
+.bar {
+    margin-top: 50px;
+}
+
+.categories {
+    margin-bottom: 10px;
+    height: 45px;
 }
