@@ -5,8 +5,9 @@ console.log(totalAmount)
 categories.forEach((cat, index) => {
     let x = parseFloat(cat.innerHTML) / totalAmount;
     console.log(parseFloat(x * 150));
-    cat.style.width = `${x * 150}px`
-    cat.style.background = `${colors[index]}`
+    cat.style.width = `${x * 300}px`
+    cat.style.paddingLeft = `${x * 300}px`
+    cat.style.background = `linear-gradient(to left, rgb(255, 255, 255, 0.5), ${colors[index]}`
     cat.innerHTML = `${cat.id}: ${cat.innerHTML}`   
 });
 

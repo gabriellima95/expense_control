@@ -9,13 +9,14 @@
 <body>
 
     <div id="login">
+        
         <form method="post" action="/signin">
 
             <input type="text" name="username" placeholder="Usuário" />
 
             <input type="password" name="password" placeholder="Senha">
 
-            <button type="submit">Login</button>
+            <button type="submit" id="login--button">Login</button>
 
             <a href="{{ url_for('user.signup') }}">Criar Usuário</a>
         </form>

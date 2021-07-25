@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
 
+::placeholder {
+    color: white;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -49,24 +53,26 @@ textarea {
     font-size: 14px;
 }
 
-button {
+#add--expenses {
     width: 150px;
     height: 25px;
     font-size: 14px;
-    background: lightgray;
+    color: white;
+    background: transparent;
     border: none;
     border-radius: 5px;
-    box-shadow: 5px 5px 10px #2c3e50;
+    box-shadow: 3px 3px 6px rgb(0, 0, 0, 0.3),
+                -3px -3px 6px rgb(255, 255, 255, 0.3);
     transition: all ease 0.75s;
 }
-button:hover {
-    opacity: 90%;
-    cursor: pointer;
+
+#add--expenses:hover {
+    opacity: 60%;
 }
 
-button:active {
-    opacity: 80%;
-    box-shadow: none;
+#add--expenses:active {
+    box-shadow: inset 5px 5px 10px rgb(0, 0, 0, 0.3),
+                inset -5px -5px 10px rgb(255, 255, 255, 0.3)
 }
 
 #expenses {
@@ -135,6 +141,27 @@ button:active {
     width: 240px;
     margin: 55px auto 10px auto;
     padding: 10px;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgb(0,0,0,0.3),
+                -10px -10px 20px rgb(255,   255, 255, 0.3);
+    /* border: 1px solid black; */
+}
+
+#expense_form input, #expense_form textarea, #expense_form select {
+    color: white;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    box-shadow: inset 3px 3px 6px rgb(0, 0, 0, 0.3),
+                inset -3px -3px 6px rgb(255, 255, 255, 0.3);
+    margin-bottom: 10px;
+}
+
+option {
+    color: black;
 }
 
 .due-date {
