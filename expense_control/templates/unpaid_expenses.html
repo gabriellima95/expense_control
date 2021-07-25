@@ -9,7 +9,7 @@
             {% if date >= e.due %}
             <div class="unpaid-item">
                 <h2> {{e.value}} </h2>
-                <span class="due-date"> {{e.due}}</span>
+                <span class="due-date">{{e.due.day}}/{{e.due.month}}/{{e.due.year}}</span>
                 <p>{{e.description}} </p>
                 <form method='post' action='/expense/{{e.id}}/pay'>
                     <button type="submit">Pagar</button>

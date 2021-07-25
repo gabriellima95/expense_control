@@ -7,7 +7,7 @@
 
     <div class="expense-item">
         <h2> {{e.value}} </h2>
-        <span class="due-date"> {{e.due}}</span>
+        <span class="due-date">{{e.due.day}}/{{e.due.month}}/{{e.due.year}}</span>
         <p>{{e.description}} </p>
         <p>{{e.category.value}} </p>
     </div>
