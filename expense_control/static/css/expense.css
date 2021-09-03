@@ -181,9 +181,14 @@ option {
 #expenses--history {
     display: flex;
     flex-wrap: wrap;
-    width: 680px;
-    height: 100%;
+    width: 900px;
+    height: fit-content;
     margin-top: 50px;
+}
+
+.bar--container {
+    display: flex;
+    flex-direction: column;
 }
 
 .bar {

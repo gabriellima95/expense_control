@@ -22,9 +22,12 @@
         <div class='categories' id={{cat}}>{{value}}</div>
         {% endfor %}
     </div>
+    <canvas id='canvas'></canvas>
 </div>
+
 <script type="text/javascript" src="../static/js/vanilla-tilt.js"></script>
 <script type='text/javascript' src="../static/js/bar.js"></script>
+<script type='text/javascript' src="../static/js/pieChart.js"></script>
 <script type="text/javascript">
 	VanillaTilt.init(document.querySelectorAll(".expense-item"), {
 		max: 25,
